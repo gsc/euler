@@ -1,16 +1,20 @@
+# Project Euler, problem 1: Multiples of 3 and 5 (http://projecteuler.net/problem=1). 
+
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+# Find the sum of all the multiples of 3 or 5 below 1000.
+
 x = 3
 y = 5
+
+#threshold, only multiples below 'roof' are to be summed up. 
 roof = 1000
 
-def mytest2():
-    print('tis is a a ttest')
-    
-def calcMultiplos(x,y,roof):
+def calcMultiples(x,y,roof):
     m = 2
     acum = 0
     mult = []
     while True:
-        #multiplos exclusivos de x
+        #Multiples from x, and x only. (i.e. excluding those that are also multiples of x). 
         if (m % y != 0 and x * m < roof):
             print(x*m)
             acum += (x*m)
@@ -21,8 +25,8 @@ def calcMultiplos(x,y,roof):
             m += 1
 
     m = 2
-    while True: 
-        #multiplos exclusivos de y
+    while True:
+        #Multiples from y, and y only (i.e. excluding those that are also multiples of x).         
         if (m % x != 0 and y * m < roof):
             print(y*m)
             acum += (y*m)
@@ -30,14 +34,12 @@ def calcMultiplos(x,y,roof):
         if(y * m > roof):
             break
         else:
-            m +=1
-                            
-    print('up to this point: '+str(acum))
+            m +=1                            
     a = 1
     b = 1
     # True => inc a, False => inc b
 
-    print('inc b')
+    # Multiples of x and y. 
     while True:
         b = a
         while True: 
@@ -53,17 +55,7 @@ def calcMultiplos(x,y,roof):
         if(a >= (roof - y) / x):
             break
         
-    #     if(a )
-    # b = 1
-    # print('inc a')
-    # while True:
-    #     if(a * x * b * y < roof):
-    #         print (a*x*b*y)
-    #         acum += a * x* b*y
-    #         a += 1
-    #     else:
-    #         break
-                
+    # 8 (3+5) is added, to include the 'base' factors in the sum. 
     return (acum +8)
         
 
