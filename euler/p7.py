@@ -10,25 +10,16 @@ the 6th prime is 13.
 
 What is the 10001st prime number?
 """
-
-def is_prime(num):
-    """
-    Determines whether a number is a prime
-    """
-    for i in range(2, int(num**0.5)+1):
-        if num % i == 0:
-            return False
-
-    return True
+import euler
 
 def main():
-
+    
     primes = [1, 2, 3]
     last_prime = 3
 
     while len(primes) < 10002:
         last_prime += 2
-        if is_prime(last_prime):
+        if euler.is_prime(last_prime):
             primes.append(last_prime)
 
     print "The 10.001st prime is %d " % last_prime

@@ -12,15 +12,7 @@ What is the smallest positive number that is evenly divisible by all of the
 numbers from 1 to 20?
 """
 
-def is_prime(num):
-    """
-    Determines whether a number is a prime
-    """
-    for i in range(2, num):
-        if num % i == 0:
-            return False
-
-    return True
+import euler
 
 def get_factors(num):
     """
@@ -29,7 +21,7 @@ def get_factors(num):
     res = []
     for factor in range(1, num+1):
         if num % factor == 0:
-            if is_prime(factor):
+            if euler.is_prime(factor):
                 res.append(factor)
             elif num != factor:
                 res = get_factors(factor)
@@ -41,14 +33,14 @@ def main():
     numbers from 1 to 20 by brute force.
     """
 
-    primes = [x for x in range(1, 21) if is_prime(x)]
+    primes = [x for x in range(1, 21) if euler.is_prime(x)]
 
     target = reduce(lambda x, y: x*y, primes)
 
     for i in range(1, 21):
         rest = target % i
         if rest != 0:
-            if is_prime(rest):
+            if euler.is_prime(rest):
                 target = target * rest
             else:
                 factors = get_factors(rest)
