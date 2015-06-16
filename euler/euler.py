@@ -24,11 +24,7 @@ def eratosthenes_sieve(top):
     primes = []
 
     for num in range(2, top+1):
-        if num % 10000 == 0:
-            print "Verifying: %d first numbers" % num
-
         if num not in not_primes and is_prime(num):
-
             primes.append(num)
 
             for i in range(2, top / num +1):
